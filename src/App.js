@@ -14,44 +14,27 @@ function App() {
   
   useEffect(() => {
     let interval = null;
-    
+    if (seconds<60) {
       interval = setInterval(() => {
-        setSeconds(setSeconds(
-          if(seconds < 59) {
-            seconds => seconds + 1;
-          }else if () {
-            seconds => 0;
-            setMinutes(minutes => minutes + 1);
-          }
-        ), 1000);
-    
+        setSeconds(seconds => seconds + 1);
+      }, 1000)
+    }
+    else if (minutes<60) {
+      setMinutes(minutes => minutes + 1);
+      setSeconds(0);
+    }
+    else if (hours<24) {
+      setHours(hours => hours + 1);
+      setMinutes(0);
+      setSeconds(0);
+    }
+
     return () => clearInterval(interval);
+    
   });
 
   useEffect(() => {
-    let interval = null;
-    
-      interval = setInterval(() => {
-        setMinutes(minutes => minutes<59? minutes + 1 : 0);
-      }, 6000);
-    
-    return () => clearInterval(interval);
-  });
-
-  useEffect(() => {
-    let interval = null;
-    
-      interval = setInterval(() => {
-        setHours(hours => hours + 1);
-      }, 360000);
-    
-    return () => clearInterval(interval);
-  });
-
-
-
-  useEffect(() => {
-    var timerID = setInterval( () => tick(), 1000 );
+    var timerID = setInterval( () => tick(), 1000);
   
     return function cleanup() {
         clearInterval(timerID);
