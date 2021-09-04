@@ -31,7 +31,7 @@ function App() {
 
     return () => clearInterval(interval);
     
-  });
+  }, [hours, minutes, seconds]);
 
   useEffect(() => {
     var timerID = setInterval( () => tick(), 1000);
