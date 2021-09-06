@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 
+//useState, useEffect, estructuras de datos
 function Home() {
   const [seconds, setSeconds] = useState(0);
   const [minutes, setMinutes] = useState(0);
@@ -67,26 +68,25 @@ function Dashboard() {
   );
 }
 
-//TODO why this doesnt work
+//useParams
 function Parameters() {
-
-return (
-  <div>
-    <h2>Parameters Test</h2>
-    <h3>No params were passed</h3>
-  </div>
-);
-}
-  
-  function ParametersID() {
-      const { id } = useParams();
-
+  const { id } = useParams();
+  if (id == null) {
     return (
       <div>
         <h2>Parameters Test</h2>
-        <h3>The parameter that was passed is {id}</h3>
+        <h3>No params were passed</h3>
       </div>
     );
+  }else {
+    return (
+      <div>
+          <h2>Parameters Test</h2>
+          <h3>The parameter that was passed through the URL is {id}</h3>
+        </div>
+      );
   }
+}
+//TODO UseHistory
 
-export {Home,About,Dashboard,Parameters, ParametersID} ;
+export {Home,About,Dashboard,Parameters} ;

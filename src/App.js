@@ -8,7 +8,7 @@ import {
   Route,
   Link
 } from "react-router-dom";
-import { Home,About, Dashboard, Parameters, ParametersID} from "./components/NewInput";
+import { Home,About, Dashboard, Parameters } from "./components/NewInput";
 
 
 
@@ -25,7 +25,7 @@ return(
 
       <Link style={{ padding: "30px" }} to="/dashboard">Dashboard</Link>
 
-      <Link style={{ padding: "30px" }} to="/parameters">Parameters</Link>
+      <Link style={{ padding: "30px" }} to="/parameters/">Parameters</Link>
 
       <hr />
 
@@ -39,11 +39,8 @@ return(
         <Route path="/dashboard">
           <Dashboard />
         </Route>
-        <Route path="/parameters/">
+        <Route path="/parameters/:id?">
           <Parameters />
-        </Route>
-        <Route path="/parameters/:id">
-          <ParametersID />
         </Route>
       </Switch>
 
