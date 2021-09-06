@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams, useHistory } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 //useState, useEffect, estructuras de datos
 function Home() {
@@ -71,22 +71,21 @@ function Dashboard() {
 //useParams
 function Parameters() {
   const { id } = useParams();
-  if (id == null) {
+  if (id === undefined) {
     return (
       <div>
         <h2>Parameters Test</h2>
-        <h3>No params were passed</h3>
+        <h3>No params were passed. Try writing something .../parameters/[Here]</h3>
       </div>
     );
   }else {
     return (
       <div>
           <h2>Parameters Test</h2>
-          <h3>The parameter that was passed through the URL is {id}</h3>
+          <h3>The parameter that was passed through the URL is "{id}"</h3>
         </div>
       );
   }
 }
-//TODO UseHistory
 
 export {Home,About,Dashboard,Parameters} ;
